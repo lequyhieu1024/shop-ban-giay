@@ -134,7 +134,7 @@ endif?>
 <script>
   function handleButtonClick() {
     document.getElementById('thanhtoan').click();
-    document.getElementById('thongtin').click();
+    // document.getElementById('thongtin').click();
   }
 
   document.getElementById('popupButton').addEventListener('click', handleButtonClick);

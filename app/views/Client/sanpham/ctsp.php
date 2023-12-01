@@ -119,7 +119,8 @@
                   <input type="hidden" name="iduser" value="<?=$_SESSION['iduser']?>">
                   <?php endif ?>
                 </div>
-                <button type="submit" name="muangay" onclick="submitForm('muangay')" class="btn btn-warning shadow-0"> Buy now </button>
+                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary mx-2">Mua ngay</button>
+                <button type="submit" id="thanhtoan" style="display:none" name="muangay" onclick="submitForm('muangay')" class="btn btn-warning shadow-0"> Buy now </button>
                 <button type="submit" name="themgiohang" onclick="submitForm('addtocart')" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </button>
               </form>
               <?php endforeach;?>
@@ -128,7 +129,38 @@
         </div>
       </section>
     </div>
-    <!-- content -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Chọn phương thức thanh toán</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <button type="button" class="btn btn-success" id="popupButton" onclick="handleButtonClick()">Thanh toán bằng tiền mặt</button>
+          </div>
+          <div class="modal-body">
+            <button type="button" class="btn btn-success" disabled onclick="handleButtonClick()">Thanh toán VNPAY (Bảo trì)</button>
+          </div>
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script>
+      function handleButtonClick() {
+        document.getElementById('thanhtoan').click();
+      }
+
+      document.getElementById('popupButton').addEventListener('click', handleButtonClick);
+    </script>
     <script>
     function submitForm(action) {
         var form = document.getElementById("myForm");
@@ -228,3 +260,7 @@
       </div>
     </section>
 </main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
