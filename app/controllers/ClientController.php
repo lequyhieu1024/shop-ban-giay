@@ -138,20 +138,15 @@ if(isset($_GET['redirect'])){
         case 'huydonhang':
             include ("app/views/client/sanpham/huydonhang.php");
             break;
-        case 'muangay':
-            include ("app/views/client/sanpham/giohang.php");
+        case 'thongtin':
                 if(isset($_SESSION['user'])){
-                $iduser = $_POST['iduser'];
-                $soluong = $_POST['soluong'];
-                $tongtien = $_POST['price'];
-                $ngaydathang = $_POST['ngaydathang'];
-                $address = $_POST['receive_address'];
-                $tel = $_POST['receive_tel'];
-                $user = $_POST['iduser'];
-                $bill_status = $_POST['bill_status'];
-                muahang($iduser,$ngaydathang,$tongtien,$bill_status,$address,$tel,$user);
-                echo '<script>alert("Thanh toán thành công")</script>';
-                echo '<script>window.location.href="index.php?redirect=donhang"</script>';
+                    if(isset($_POST['muangay'])){
+                        // $tel = $_POST['receive_tel'];
+                        // $user = $_POST['iduser'];
+                        // $bill_status = $_POST['bill_status'];
+                        // muahang($iduser,$ngaydathang,$tongtien,$bill_status,$address,$tel,$user);
+                        include "app/views/client/taikhoan/thongtin.php";
+                    }
                 }else{
                     echo '<script>alert("Chưa đăng nhập")</script>';
                     echo '<script>window.location.href="index.php?redirect=dangnhap"</script>';
@@ -166,7 +161,7 @@ if(isset($_GET['redirect'])){
                 $ngaydathang = $_POST['ngaydathang'];
                 $address = $_POST['receive_address'];
                 $tel = $_POST['receive_tel'];
-                $user = $_POST['iduser'];
+                $user = $_POST['user'];
                 $bill_status = $_POST['bill_status'];
                 muahang($iduser,$ngaydathang,$tongtien,$bill_status,$address,$tel,$user);
                 echo '<script>alert("Thanh toán thành công")</script>';

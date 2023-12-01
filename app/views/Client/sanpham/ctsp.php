@@ -167,7 +167,7 @@
 
         // Kiểm tra giá trị của action và chuyển hướng action tương ứng
         if (action === 'muangay') {
-            form.action = "index.php?redirect=muangay"; // Thay đổi thành đường dẫn thích hợp cho Buy Now
+            form.action = "index.php?redirect=thongtin"; // Thay đổi thành đường dẫn thích hợp cho Buy Now
         } else if (action === 'addtocart') {
             form.action = "index.php?redirect=themgiohang"; // Thay đổi thành đường dẫn thích hợp cho Add to Cart
         }
