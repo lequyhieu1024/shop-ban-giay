@@ -97,7 +97,7 @@
                   <div class="col-md-4 col-6 mb-3">
                     <label class="mb-2 d-block">Số lượng</label>
                     <div class="input-group mb-3" style="width: 170px;">
-                      <input type="number" name="soluong" min="1" class="form-control text-center border border-secondary"
+                      <input type="number" oninput="validateQuantity(this)" name="soluong" min="1" class="form-control text-center border border-secondary"
                         aria-label="Example text with button addon" aria-describedby="button-addon1" />
                     </div>
                   </div>
@@ -260,6 +260,13 @@
       </div>
     </section>
 </main>
+<script>
+function validateQuantity(input) {
+    if (input.value <= 0) {
+        input.value = 1; // Đặt lại giá trị thành 1 nếu giá trị là 0 hoặc âm
+    }
+}
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

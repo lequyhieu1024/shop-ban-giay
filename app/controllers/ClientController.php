@@ -102,6 +102,8 @@ if(isset($_GET['redirect'])){
             
                     if ($_POST['soluong'] == "") {
                         $soluong = 1;
+                    }else if ($_POST['soluong'] <=0 ) {
+                        echo '<script>alert("Lỗi")</script>';
                     } else {
                         $soluong = $_POST['soluong'];
                     }

@@ -161,6 +161,7 @@ endif?>
   }
   document.querySelector('.count-input select').addEventListener('change', handleQuantityChange);
 </script>
+
 <style>
     .abcxyz{
         padding: 20px;
