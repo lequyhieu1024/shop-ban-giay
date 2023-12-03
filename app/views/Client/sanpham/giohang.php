@@ -80,7 +80,7 @@
                             class="fw-bold align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">
                             Thành Tiền:<?php $sum = sumThanhTien();extract($sum);?>
                             <input type="hidden" name="tongtien" value="<?=$tongtien?>">
-                            <input type="text" name="thanhtien" value="<?=$tongtien?>" disabled> 
+                            <input type="text" name="thanhtien"  disabled> 
                         </span></div>
                     </div>
                 </div>
