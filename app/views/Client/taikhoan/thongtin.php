@@ -1,6 +1,7 @@
 <form method="post" action="index.php?redirect=thanhtoan">
     <?php 
         $iduser = $_POST['iduser'];
+        $idpro = $_POST['idpro'];
         $soluong = $_POST['soluong'];
         $tongtien = $_POST['price'];
         $ngaydathang = $_POST['ngaydathang'];
@@ -8,27 +9,27 @@
         
     ?>
     <input type="hidden" name="iduser" value="<?=$iduser?>">
-    <input type="hidden" name="soluong" value="<?=$soluong?>">
+    <input type="hidden" name="idpro[]" value="<?=$idpro?>">
+    <input type="hidden" name="soluong[]" value="<?=$soluong?>">
     <input type="hidden" name="tongtien" value="<?=$tongtien?>">
     <input type="hidden" name="ngaydathang" value="<?=$ngaydathang?>">
-    <input type="hidden" name="addresss" value="<?=$address?>">
 <h1>Thông tin người nhận</h1>
 <?php $tt = thongtin();
 foreach($tt as $row):extract($row);?>
 <div class="form-outline md-4">
-    <input type="text" name="receive_name" id="form3Example3" class="form-control form-control-lg"
+    <input type="text" required name="receive_name" id="form3Example3" class="form-control form-control-lg"
     value="<?=$user?>" />
     <label class="form-label" for="form3Example3">tên người nhận</label>
 </div>
 <div class="form-outline md-4">
-    <input type="text" name="receive_address" id="form3Example3" class="form-control form-control-lg"
+    <input type="text" required name="receive_address" id="form3Example3" class="form-control form-control-lg"
     value="<?=$address?>" />
     <label class="form-label" for="form3Example3">địa chỉ</label>
 </div>
 
 <!-- Password input -->
 <div class="form-outline md-3">
-    <input type="text" id="form3Example4" name="receive_tel" class="form-control form-control-lg"
+    <input type="text" id="form3Example4" required name="receive_tel" class="form-control form-control-lg"
     value="<?=$tel?>" />
     <label class="form-label"  for="form3Example4">số điện thoại</label>
 </div>

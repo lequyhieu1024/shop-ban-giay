@@ -52,7 +52,7 @@
             <option value="1">Đang lấy hàng</option>
             <option value="2">Đang giao hàng</option>
             <option value="3">Giao thành công</option>
-            <option value="4">Hủy</option>
+            <option value="4">Đã nhận được hàng</option>
         </select>
         <input type="hidden" name="id" value="<?= $id ?>"> 
         <a href="index.php?act=capnhattt"><input style="width:100px;border-radius:50px;padding:2px 10px;background-color:#198754;border:1px solid #198754;color:white;" type="submit" name="capnhat" value="Cập nhật"></a>

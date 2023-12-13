@@ -128,3 +128,13 @@ function updatett($id,$status){
     $sql = "UPDATE bill SET bill_status = '$status' WHERE id = $id";
     pdo_execute($sql);
 }
+function billct($idbill){
+    $sql= "SELECT * FROM bill_chitiet
+    JOIN taikhoan ON bill_chitiet.iduser = taikhoan.id
+    JOIN sanpham ON bill_chitiet.idpro = sanpham.id
+    JOIN bill ON bill.id = bill_chitiet.id_bill
+    WHERE bill_chitiet.id_bill = $idbill
+    ";
+    $result = pdo_query($sql);
+    return $result;
+}

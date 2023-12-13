@@ -77,3 +77,28 @@ function donHangCuaToi(){
     $ressult = pdo_query($sql);
     return $ressult;
 }
+function addBillCt($idpro,$soluong,$iduser,$idBillNewest){
+    $sql = "INSERT INTO bill_chitiet( idpro, soluong, iduser, id_bill) VALUES ('$idpro','$soluong','$iduser','$idBillNewest')";
+    pdo_execute($sql);
+}
+function getId(){
+    $sql = "SELECT id as idBillNewest FROM bill
+    ORDER BY id DESC
+    LIMIT 1";
+    $result = pdo_query($sql);
+    return $result;
+}
+function billct($idbill){
+    $sql= "SELECT * FROM bill_chitiet
+    JOIN taikhoan ON bill_chitiet.iduser = taikhoan.id
+    JOIN sanpham ON bill_chitiet.idpro = sanpham.id
+    JOIN bill ON bill.id = bill_chitiet.id_bill
+    WHERE bill_chitiet.id_bill = $idbill
+    ";
+    $result = pdo_query($sql);
+    return $result;
+}
+function update_nhanhang($id_bill){
+    $sql = "UPDATE bill SET bill_status = 4 WHERE id = $id_bill";
+    pdo_query($sql);
+}

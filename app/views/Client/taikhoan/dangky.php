@@ -3,7 +3,7 @@
             <div class="container-fluid h-custom">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
-                  <img src="public/img/adidas1.png"
+                  <img src="public/img/logo.png"
                     class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
@@ -12,7 +12,7 @@
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                       <input type="text" name="user" id="form3Example3" class="form-control form-control-lg"
-                        placeholder="UserName" />
+                        placeholder="Tên đăng nhập" />
                       <label class="form-label" for="form3Example3">Tên đăng nhập</label>
                     </div>
                     <div class="form-outline mb-4">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-outline mb-4">
                       <input type="text" name="address" id="form3Example3" class="form-control form-control-lg"
-                        placeholder="Address" />
+                        placeholder="Địa chỉ" />
                       <label class="form-label" for="form3Example3">Địa chỉ</label>
                     </div>
                     <div class="form-outline mb-4">
@@ -32,16 +32,16 @@
                     </div>
                     <div class="form-outline mb-4">
                       <input type="password" name="pass" id="form3Example3" class="form-control form-control-lg"
-                        placeholder="Enter password" />
-                      <label class="form-label" for="form3Example3">Password</label>
+                        placeholder="Nhập mật khẩu" />
+                      <label class="form-label" for="form3Example3">Mật khẩu</label>
                       <input type="hidden" name="role" value="0" id=""><br>
                     </div>
           
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                       <input type="password" name="cfpass" id="form3Example4" class="form-control form-control-lg"
-                        placeholder="Enter password" />
-                      <label class="form-label" for="form3Example4">Xác nhận Password</label>
+                        placeholder="Nhập mật khẩu" />
+                      <label class="form-label" for="form3Example4">Xác nhận mật khẩu</label>
                     </div>
                     <div class="text-center text-lg-start mt-4 pt-2">
                       <button type="submit" name="dangky" class="btn btn-primary btn-lg"

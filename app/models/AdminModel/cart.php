@@ -202,7 +202,7 @@ function get_ttdh($n)
             break;
 
         case '4':
-            $tt = "Hủy";
+            $tt = "Đã nhận được hàng";
             break;
 
         default:

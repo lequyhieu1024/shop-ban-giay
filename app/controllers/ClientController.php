@@ -102,8 +102,6 @@ if(isset($_GET['redirect'])){
             
                     if ($_POST['soluong'] == "") {
                         $soluong = 1;
-                    }else if ($_POST['soluong'] <=0 ) {
-                        echo '<script>alert("Lỗi")</script>';
                     } else {
                         $soluong = $_POST['soluong'];
                     }
@@ -155,25 +153,43 @@ if(isset($_GET['redirect'])){
                 }
             break;
         case 'thanhtoan':
-            if(isset($_POST['thanhtoan'])){
-                if(isset($_SESSION['user'])){
-                $iduser = $_POST['iduser'];
-                $soluong = $_POST['soluong'];
-                $tongtien = $_POST['tongtien'];
-                $ngaydathang = $_POST['ngaydathang'];
-                $address = $_POST['receive_address'];
-                $tel = $_POST['receive_tel'];
-                $user = $_POST['user'];
-                $bill_status = $_POST['bill_status'];
-                muahang($iduser,$ngaydathang,$tongtien,$bill_status,$address,$tel,$user);
-                echo '<script>alert("Thanh toán thành công")</script>';
-                echo '<script>window.location.href="index.php?redirect=donhang"</script>';
+            case 'thanhtoan':
+                if(isset($_POST['thanhtoan'])){
+                    if(isset($_SESSION['user'])){
+                    $idpro = $_POST['idpro'];
+                    // print_r($idpro);
+                    $iduser = $_POST['iduser'];
+                    $soluong = $_POST['soluong'];
+                    // print_r($soluong);
+                    $tongtien = $_POST['tongtien'];
+                    $ngaydathang = $_POST['ngaydathang'];
+                    $address = $_POST['receive_address'];
+                    $tel = $_POST['receive_tel'];
+                    $user = $_POST['receive_name'];
+                    $bill_status = $_POST['bill_status'];
+                    muahang($iduser,$ngaydathang,$tongtien,$bill_status,$address,$tel,$user);
+                    foreach($idpro as $key => $value){
+                        $getid = getId();
+                            foreach($getid as $row):
+                                extract($row);
+                            addBillCt($value,$soluong[$key],$iduser,$idBillNewest);
+                            endforeach;
+                        }
+                    echo '<script>alert("Thanh toán thành công")</script>';
+                    echo '<script>window.location.href="index.php?redirect=donhang"</script>';
+                    }
                 }
-            }
-            include ("app/views/client/sanpham/giohang.php");
-            break;
+                include ("app/views/client/sanpham/giohang.php");
+                break;
         case 'donhang':
             include ("app/views/client/sanpham/donhangcuatoi.php");
+            break;
+        case 'billct':
+            include ("app/views/client/sanpham/billct.php");
+            break;
+        case 'update_nhanhang':
+            $idbill = $_GET['id'];
+            update_nhanhang($idbill);
             break;
         case 'addbinhluan':
             if(isset($_POST['binhluan'])){

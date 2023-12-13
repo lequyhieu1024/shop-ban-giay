@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2023 lúc 11:33 AM
+-- Thời gian đã tạo: Th12 13, 2023 lúc 11:16 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `duan1`
+-- Cơ sở dữ liệu: `shop-ban-giay`
 --
 
 -- --------------------------------------------------------
@@ -43,10 +43,47 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`id`, `iduser`, `ngaydathang`, `total`, `bill_status`, `receive_name`, `receive_address`, `receive_tel`) VALUES
-(160, 468, '2023DecFri040st', 750000, 3, 'ngx btl', '0338475943', '468'),
-(161, 468, '2023DecFri040st', 750000, 3, 'ngx btl', '0338475943', '468'),
-(163, 468, '2023DecFri060st', 150000, 3, '468', 'ngx btl', '0338475943'),
-(170, 468, '', 150000, 3, '468', 'ngx btl', '0338475943');
+(177, 475, '2023DecMon140th', 1500000, 4, 'admin', 'ngx btl', '0338475943'),
+(179, 475, '2023DecMon140th', 1500000, 4, 'admin', 'ngx btl', '0338475943'),
+(180, 475, '2023DecMon140th', 1650000, 4, 'admin', 'ngx btl', '0338475943'),
+(181, 475, '2023-12-04', 150000, 0, 'admin', 'ngx btl', '0338475943'),
+(182, 475, '2023-12-04', 150000, 0, 'admin', 'ngx btl', '0338475943'),
+(183, 475, '2023DecWed110th', 3150000, 0, 'admin', 'ngx btl', '0338475943');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill_chitiet`
+--
+
+CREATE TABLE `bill_chitiet` (
+  `id_bill_ct` int(11) NOT NULL,
+  `idpro` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `id_bill` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill_chitiet`
+--
+
+INSERT INTO `bill_chitiet` (`id_bill_ct`, `idpro`, `soluong`, `iduser`, `id_bill`) VALUES
+(52, 40, 8, 475, 177),
+(53, 42, 2, 475, 177),
+(54, 39, 0, 475, 178),
+(55, 40, 8, 475, 179),
+(56, 42, 2, 475, 179),
+(57, 40, 8, 475, 180),
+(58, 42, 2, 475, 180),
+(59, 39, 1, 475, 180),
+(60, 39, 0, 475, 181),
+(61, 42, 0, 475, 182),
+(62, 38, 5, 475, 183),
+(63, 42, 3, 475, 183),
+(64, 39, 3, 475, 183),
+(65, 41, 2, 475, 183),
+(66, 40, 8, 475, 183);
 
 -- --------------------------------------------------------
 
@@ -105,11 +142,9 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `iduser`, `idpro`, `size`, `soluong`, `thanhtien`) VALUES
 (248, 468, 42, 36, 1, 150000),
-(255, 475, 38, 36, 5, 750000),
-(264, 475, 42, 36, 3, 450000),
-(265, 475, 39, 36, 3, 450000),
-(266, 475, 41, 36, 2, 300000),
-(267, 475, 40, 36, 8, 1200000);
+(267, 475, 40, 36, 8, 1200000),
+(268, 475, 42, 36, 2, 300000),
+(269, 475, 39, 36, 1, 150000);
 
 -- --------------------------------------------------------
 
@@ -227,6 +262,12 @@ ALTER TABLE `bill`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `bill_chitiet`
+--
+ALTER TABLE `bill_chitiet`
+  ADD PRIMARY KEY (`id_bill_ct`);
+
+--
 -- Chỉ mục cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
@@ -271,7 +312,13 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
+
+--
+-- AUTO_INCREMENT cho bảng `bill_chitiet`
+--
+ALTER TABLE `bill_chitiet`
+  MODIFY `id_bill_ct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
@@ -283,7 +330,7 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`

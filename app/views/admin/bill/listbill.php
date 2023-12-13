@@ -45,6 +45,7 @@
                                       <td>' . $bill["receive_address"] . '</td>   
                                       <td>' . $bill["receive_tel"] . '</td>   
                                       <td><a href="index.php?act=updatett&id='.$idbill.'"><button style="border-radius:50px;padding:2px 10px;background-color:green;color:white">Cập nhật</button></a>
+                                      <a href="index.php?act=listbillct&id_bill='.$idbill.'"><button style="border-radius:50px;padding:2px 10px;background-color:orange;color:white">Chi tiết</button></a>
                                       <a  href="' . $xoabill . '"> <input style="border-radius:50px;padding:2px 10px;background-color:#E10000;border:1px solid #E10000;color:white;" type="button"  onclick="return abc()" value="xóa"></a> </td>
             
                                       </form>

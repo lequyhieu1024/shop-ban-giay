@@ -133,7 +133,7 @@
       <div style="width: 700px;float: right;">
       <h3>Đơn hàng mới</h3>
         <?php
-        include "bill/listbill2.php";
+        // include "bill/listbill2.php";
         ?>
       </div>
     </main>

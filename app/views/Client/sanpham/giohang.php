@@ -9,10 +9,10 @@
                 <?php if(isset($_SESSION['iduser'])):?>
                     <input type="hidden" name="iduser" value="<?=$_SESSION['iduser']?>">
                 <?php endif?>
-                    <input type="hidden" name="soluong" value="<?=$soluong?>">
+                    <input type="hidden" name="soluong[]" value="<?=$soluong?>">
+                    <input type="text" name="idpro[]" value="<?=$idpro?>">
                     <input type="hidden" name="ngaydathang" value="<?php echo date("YMDHIS") ?>">
                     <input type="hidden" name="bill_status" value="0">
-
 
 
                 <div class="cart-item d-md-flex justify-content-between"><span class="remove-item"><i
@@ -71,16 +71,16 @@
                             <h3>Thông tin người nhận</h3>
                             <?php $tt = thongtin();
                             foreach($tt as $row) :?>
-                            <input type="text" name="receive_name" value="<?=$row['user']?>"> <br/>
-                            <input type="text" name="receive_address" value="<?=$row['address']?>"><br/>
-                            <input type="text" name="receive_tel" value="<?=$row['tel']?>"><br/>
+                            <input type="text" required name="receive_name" value="<?=$row['user']?>"> <br/>
+                            <input type="text" required name="receive_address" value="<?=$row['address']?>"><br/>
+                            <input type="text" required name="receive_tel" value="<?=$row['tel']?>"><br/>
                             <?php endforeach?>
                         </div>
                         <div class="py-2 d-flex flex-row-reverse"><span
                             class="fw-bold align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">
                             Thành Tiền:<?php $sum = sumThanhTien();extract($sum);?>
                             <input type="hidden" name="tongtien" value="<?=$tongtien?>">
-                            <input type="text" name="thanhtien"  disabled> 
+                            <input type="text" name="thanhtien" value="<?=$tongtien?>" disabled> 
                         </span></div>
                     </div>
                 </div>
@@ -161,7 +161,6 @@ endif?>
   }
   document.querySelector('.count-input select').addEventListener('change', handleQuantityChange);
 </script>
-
 <style>
     .abcxyz{
         padding: 20px;
